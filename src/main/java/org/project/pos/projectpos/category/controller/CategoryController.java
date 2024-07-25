@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.project.pos.projectpos.category.model.CategoryRequest;
 import org.project.pos.projectpos.category.model.CategoryResponse;
 import org.project.pos.projectpos.category.service.CategoryService;
+import org.project.pos.projectpos.util.Response;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,16 +26,8 @@ public class CategoryController {
     @GetMapping("")
     public ModelAndView category() {
         ModelAndView view = new ModelAndView("pages/master/category/index");
-         //langka 1
-        List<CategoryResponse> responses = new ArrayList<>();
-        responses.add(new CategoryResponse("1234","billa",111,3333));
-        responses.add(new CategoryResponse("1234","billa",111,3333));
-        responses.add(new CategoryResponse("1234","billa",111,3333));
-        responses.add(new CategoryResponse("1234","billa",111,3333));
-
-
 //      List<CategoryResponse> categoryResponses = categoryService.get();
-        view.addObject("data", responses);
+//        view.addObject("data", responses);
         return view;
     }
 
@@ -44,7 +38,10 @@ public class CategoryController {
     }
 
     @GetMapping("/data")
-    public List<CategoryResponse> getData(){
-        return this.categoryService.get();
+    public ResponseEntity<Response> getData(){
+        List<CategoryResponse> data = new ArrayList<>();
+        data.add(new CategoryResponse("1", "product-1.png", "Smart Phone", "Choose from wide range of smartphones from popular brands", "$99129", 1947));
+        data.add(new CategoryResponse("2", "product-2.png", "Electronics", "Choose from wide range of electronics from popular brands", "$2512.50", 7283));
+        return ResponseEntity.ok(new Response(data));
     }
 }

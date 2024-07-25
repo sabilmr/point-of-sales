@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.project.pos.projectpos.category.model.CategoryRequest;
 import org.project.pos.projectpos.category.model.CategoryResponse;
+import org.project.pos.projectpos.category.repository.CategoryRepo;
 import org.project.pos.projectpos.category.service.CategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -18,23 +19,13 @@ import java.util.stream.Collectors;
 @Slf4j
 @RequiredArgsConstructor
 public class CategoryImpl implements CategoryService {
-    private final List<CategoryResponse> categories;
-
-    public CategoryImpl() {
-        categories = new ArrayList<>();
-    }
+    private final CategoryRepo repo;
 
     @Override
     public List<CategoryResponse> get() {
-        List<CategoryResponse> categoryResponses = new ArrayList<>();
-        categoryResponses.add(new CategoryResponse("1234", "Makanan", 1234, 12345));
-        categoryResponses.add(new CategoryResponse("1234", "Minuman", 1234, 12345));
-        categoryResponses.add(new CategoryResponse("1234", "Electronic", 1234, 12345));
-        categoryResponses.add(new CategoryResponse("1234", "Otomotif", 1234, 12345));
-        if (categories.isEmpty()){
-            categories.addAll(categoryResponses);
-        }
-        return categories;
+        return repo.findAll().stream()
+                .map(CategoryResponse::new)
+                .collect(Collectors.toList());
     }
 
 

@@ -43,5 +43,4 @@ public class ExceptionApp extends RuntimeException {
     public Object getErrors(){
         return errors;
     }
-
 }

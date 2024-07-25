@@ -23,7 +23,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     private String[] WHITE_LIST_URL = new String[]{
-            "/assets/audio/**", "/assets/css/**", "/assets/img/**", "/assets/js/**", "/assets/json/**", "/assets/scripts/**", "/assets/svg/**", "/assets/vendor/**",
+            "/audio/**", "/css/**", "/img/**", "/js/**", "/json/**", "/scripts/**", "/svg/**", "/vendor/**",
             "/api/v1/**",
             "/v2/api-docs",
             "/v3/api-docs",

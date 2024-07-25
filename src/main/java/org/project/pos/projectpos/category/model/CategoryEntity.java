@@ -17,13 +17,19 @@ public class CategoryEntity {
     @Id
     private String id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "cat_image")
+    private String catImage;
 
-    @Column(name = "total_product")
-    private Integer totalProduct;
+    @Column(name = "categories")
+    private String categories;
 
-    @Column(name = "total_earning")
-    private Integer totalEarning;
+    @Column(name = "category_detail")
+    private String categoryDetail;
+
+    @Column(name = "total_earnings")
+    private String totalEarnings;
+
+    @Column(name = "total_products")
+    private int totalProducts;
 }
 
