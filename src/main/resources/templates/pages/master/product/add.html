@@ -4,6 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block layout:fragment="css">
+        <link rel="stylesheet" th:href="@{~/vendor/libs/quill/typography.css}" />
+        <link rel="stylesheet" th:href="@{~/vendor/libs/quill/katex.css}" />
+        <link rel="stylesheet" th:href="@{~/vendor/libs/quill/editor.css}" />
+        <link rel="stylesheet" th:href="@{~/vendor/libs/select2/select2.css}" />
+        <link rel="stylesheet" th:href="@{~/vendor/libs/dropzone/dropzone.css}" />
+        <link rel="stylesheet" th:href="@{~/vendor/libs/flatpickr/flatpickr.css}" />
+        <link rel="stylesheet" th:href="@{~/vendor/libs/tagify/tagify.css}" />
+    </th:block>
 </head>
 <body>
 <div class="container-xxl flex-grow-1 container-p-y" layout:fragment="content">
@@ -494,8 +503,7 @@
                         <!-- Tags -->
                         <div class="mb-3">
                             <label for="ecommerce-product-tags" class="form-label mb-1">Tags</label>
-                            <input
-                                    id="ecommerce-product-tags"
+                            <input id="ecommerce-product-tags"
                                     class="form-control"
                                     name="ecommerce-product-tags"
                                     value="Normal,Standard,Premium"
@@ -510,7 +518,15 @@
     </div>
 </div>
 <th:block layout:fragment="script">
-    <script th:src="@{~/scripts/master-product-add.js}"></script>
+    <script th:src="@{~/vendor/libs/quill/katex.js}"></script>
+    <script th:src="@{~/vendor/libs/quill/quill.js}"></script>
+    <script th:src="@{~/vendor/libs/select2/select2.js}"></script>
+    <script th:src="@{~/vendor/libs/dropzone/dropzone.js}"></script>
+    <script th:src="@{~/vendor/libs/jquery-repeater/jquery-repeater.js}"></script>
+    <script th:src="@{~/vendor/libs/flatpickr/flatpickr.js}"></script>
+    <script th:src="@{~/vendor/libs/tagify/tagify.js}"></script>
+    
+    <script th:src="@{~/scripts/product-add.js}"></script>
 </th:block>
 </body>
 </html>

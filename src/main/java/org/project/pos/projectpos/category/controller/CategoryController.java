@@ -22,6 +22,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
+    //model untuk menyimpen data
+    //view tampilan untuk menampilkan data
+    //controller untuk jembatan antara modal and view
 
     @GetMapping("")
     public ModelAndView category() {
@@ -39,9 +42,10 @@ public class CategoryController {
 
     @GetMapping("/data")
     public ResponseEntity<Response> getData(){
-        List<CategoryResponse> data = new ArrayList<>();
-        data.add(new CategoryResponse("1", "product-1.png", "Smart Phone", "Choose from wide range of smartphones from popular brands", "$99129", 1947));
-        data.add(new CategoryResponse("2", "product-2.png", "Electronics", "Choose from wide range of electronics from popular brands", "$2512.50", 7283));
-        return ResponseEntity.ok(new Response(data));
+        List<CategoryResponse> data = categoryService.get();
+//        data.add(new CategoryResponse("1", "product-1.png", "Smart Phone", "Choose from wide range of smartphones from popular brands", "$99129", 1947));
+//        data.add(new CategoryResponse("2", "product-2.png", "Electronics", "Choose from wide range of electronics from popular brands", "$2512.50", 7283));
+        Response response = new Response(data);
+        return ResponseEntity.ok(response);
     }
 }

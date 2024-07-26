@@ -2,8 +2,7 @@ package org.project.pos.projectpos.product.model;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductRequest {
