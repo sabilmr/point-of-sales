@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "t_costumer")
-public class CostumerEntity {
+public class CustomerEntity {
 
     @Id
     @Column(name = "id")

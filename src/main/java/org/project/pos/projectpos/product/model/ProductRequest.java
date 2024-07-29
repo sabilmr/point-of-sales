@@ -1,16 +1,40 @@
 package org.project.pos.projectpos.product.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductRequest {
+
+    @JsonProperty("id")
     private String id;
+
+    @JsonProperty("product_name")
     private String productName;
-    private String category;
-    private Integer sku;
-    private Integer price;
-    private Integer quantity;
-    private String status;
+
+    @JsonProperty("category")
+    private int category;
+
+    @JsonProperty("stock")
+    private int stock;
+
+    @JsonProperty("sku")
+    private int sku;
+
+    @JsonProperty("price")
+    private String price;
+
+    @JsonProperty("qty")
+    private int qty;
+
+    @JsonProperty("status")
+    private int status;
+
+    @JsonProperty("image")
+    private String image;
+
+    @JsonProperty("product_brand")
+    private String productBrand;
 }

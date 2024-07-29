@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 @Data
 @NoArgsConstructor
@@ -36,4 +37,8 @@ public class CustomerResponse {
 
     @JsonProperty("image")
     private String image;
+
+    public CustomerResponse(CustomerEntity entity) {
+        BeanUtils.copyProperties(entity, this);
+    }
 }

@@ -2,6 +2,7 @@ package org.project.pos.projectpos.product.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.project.pos.projectpos.product.model.ProductEntity;
 import org.project.pos.projectpos.product.model.ProductRequest;
 import org.project.pos.projectpos.product.model.ProductResponse;
 import org.project.pos.projectpos.product.repository.ProductRepo;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService{
     private final ProductRepo repo;
+    private final ProductRepo productRepo;
 
     @Override
     public List<ProductResponse> get() {
@@ -31,7 +33,19 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Optional<ProductResponse> save(ProductRequest request) {
-        return Optional.empty();
+        if (request == null){
+            return Optional.empty();
+        }
+
+        ProductEntity result = new ProductEntity();
+        try {
+            productRepo.save(result);
+            log.info("Save product success");
+            return Optional.of(new ProductResponse(result));
+        } catch (Exception e) {
+            log.error("Save product failed, error: {}", e.getMessage());
+            return Optional.empty();
+        }
     }
 
     @Override
