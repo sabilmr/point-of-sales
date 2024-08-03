@@ -39,9 +39,6 @@ public class ProductController {
 
     @PostMapping("/save")
     public ModelAndView addProduct(@ModelAttribute ProductRequest productRequest) {
-        ModelAndView mav = new ModelAndView("pages/master/product/add");
-        mav.addObject("product", productRequest);
-
         productService.save(productRequest);
         return new ModelAndView("redirect:/product");
     }

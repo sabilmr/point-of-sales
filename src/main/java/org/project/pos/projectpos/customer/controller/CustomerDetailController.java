@@ -5,16 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/customer")
-public class CustomerController {
+@RequestMapping("customerDetail")
+public class CustomerDetailController {
 
     @GetMapping
-    public String customer() {
-        return "pages/master/customer/index";
-    }
-
-    @GetMapping("/customerDetail")
     public String customerDetail() {
-        return "pages/master/customer/detail";
+        return "pages/master/customer-detail/detail";
     }
 }

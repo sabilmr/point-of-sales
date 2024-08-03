@@ -93,10 +93,10 @@ public class DbInit implements CommandLineRunner {
         }
 
         List<CategoryEntity> result = Arrays.asList(
-                new CategoryEntity("1", "product-1.png", "Smart Phone", "Choose from wide range of smartphones from popular brands", "$99129", 1947),
-                new CategoryEntity("2", "product-2.png", "Electronics", "Choose from wide range of electronics from popular brands", "$2512.50", 7283),
-                new CategoryEntity("3", "product-3.png", "Clocks", "Choose from wide range of clocks from popular brands", "$1612.34", 2954),
-                new CategoryEntity("4", "product-4.png", "Shoes", "Explore the latest shoes from Top brands", "$3612.98", 4940)
+//                new CategoryEntity("1", "product-1.png", "Smart Phone", "Choose from wide range of smartphones from popular brands", "$99129", 1947),
+//                new CategoryEntity("2", "product-2.png", "Electronics", "Choose from wide range of electronics from popular brands", "$2512.50", 7283),
+//                new CategoryEntity("3", "product-3.png", "Clocks", "Choose from wide range of clocks from popular brands", "$1612.34", 2954),
+//                new CategoryEntity("4", "product-4.png", "Shoes", "Explore the latest shoes from Top brands", "$3612.98", 4940)
         );
 
         try {

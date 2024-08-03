@@ -6,10 +6,13 @@ import org.project.pos.projectpos.product.model.ProductEntity;
 import org.project.pos.projectpos.product.model.ProductRequest;
 import org.project.pos.projectpos.product.model.ProductResponse;
 import org.project.pos.projectpos.product.repository.ProductRepo;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,6 +41,8 @@ public class ProductServiceImpl implements ProductService{
         }
 
         ProductEntity result = new ProductEntity();
+        BeanUtils.copyProperties(request, result);
+        result.setId(UUID.randomUUID().toString());
         try {
             productRepo.save(result);
             log.info("Save product success");

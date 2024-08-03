@@ -5,6 +5,7 @@ import org.project.pos.projectpos.category.model.CategoryRequest;
 import org.project.pos.projectpos.category.model.CategoryResponse;
 import org.project.pos.projectpos.category.service.CategoryService;
 import org.project.pos.projectpos.util.Response;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CategoryController {
     private final CategoryService categoryService;
+
     //model untuk menyimpen data
     //view tampilan untuk menampilkan data
     //controller untuk jembatan antara modal and view
@@ -29,8 +31,8 @@ public class CategoryController {
     @GetMapping("")
     public ModelAndView category() {
         ModelAndView view = new ModelAndView("pages/master/category/index");
-//      List<CategoryResponse> categoryResponses = categoryService.get();
-//        view.addObject("data", responses);
+//        List<CategoryResponse> categoryResponses = categoryService.get();
+        view.addObject("data", new CategoryRequest());
         return view;
     }
 

@@ -39,8 +39,7 @@
             </div>
         </div>
         <!-- Offcanvas to add new customer -->
-        <div
-                class="offcanvas offcanvas-end"
+        <div class="offcanvas offcanvas-end"
                 tabindex="-1"
                 id="offcanvasEcommerceCategoryList"
                 aria-labelledby="offcanvasEcommerceCategoryListLabel">
@@ -51,81 +50,63 @@
             </div>
             <!-- Offcanvas Body -->
             <div class="offcanvas-body border-top">
-                <form class="pt-0" id="eCommerceCategoryListForm" onsubmit="return true">
+                <form class="pt-0" id="eCommerceCategoryListForm" th:action="@{~/category/save}" method="post">
                     <!-- Title -->
                     <div class="mb-3">
-                        <label class="form-label" for="ecommerce-category-title">Title</label>
+                        <label class="form-label" for="ecommerce-category-name">Category Name</label>
                         <input type="text"
                                 class="form-control"
-                                id="ecommerce-category-title"
-                                placeholder="Enter category title"
-                                name="categoryTitle"
-                                aria-label="category title" />
+                                id="ecommerce-category-name"
+                                placeholder="Enter category name"
+                                th:value="${data.categories}"
+                                name="categories"
+                                aria-label="category name" />
                     </div>
                     <!-- Slug -->
                     <div class="mb-3">
-                        <label class="form-label" for="ecommerce-category-slug">Slug</label>
-                        <input
-                                type="text"
-                                id="ecommerce-category-slug"
+                        <label class="form-label" for="ecommerce-category-image">Cat Image</label>
+                        <input type="text"
+                                id="ecommerce-category-image"
                                 class="form-control"
-                                placeholder="Enter slug"
-                                aria-label="slug"
-                                name="slug" />
+                                placeholder="Enter cat image"
+                                th:value="${data.catImage}"
+                                aria-label="cat image"
+                                name="catImage" />
                     </div>
                     <!-- Image -->
                     <div class="mb-3">
-                        <label class="form-label" for="ecommerce-category-image">Attachment</label>
-                        <input class="form-control" type="file" id="ecommerce-category-image" />
+                        <label class="form-label" for="ecommerce-category-detail">Category Detail</label>
+                        <input class="form-control"
+                               type="text"
+                               id="ecommerce-category-detail"
+                               placeholder="Enter category detail"
+                               th:value="${data.categoryDetail}"
+                               aria-label="category detail"
+                               name="categoryDetail"/>
                     </div>
                     <!-- Parent category -->
-                    <div class="mb-3 ecommerce-select2-dropdown">
-                        <label class="form-label" for="ecommerce-category-parent-category">Parent category</label>
-                        <select
-                                id="ecommerce-category-parent-category"
-                                class="select2 form-select"
-                                data-placeholder="Select parent category">
-                            <option value="">Select parent Category</option>
-                            <option value="Household">Household</option>
-                            <option value="Management">Management</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Office">Office</option>
-                            <option value="Automotive">Automotive</option>
-                        </select>
+                    <div class="mb-3">
+                        <label class="form-label" for="ecommerce-category-earnings">Total Earnings</label>
+                        <input type="text"
+                               class="form-control"
+                               id="ecommerce-category-earnings"
+                               name="totalEarnings"
+                               th:value="${data.totalEarnings}"
+                               placeholder="Enter category earnings"
+                               aria-label="category earnings"/>
                     </div>
                     <!-- Description -->
                     <div class="mb-3">
-                        <label class="form-label">Description</label>
-                        <div class="form-control p-0 py-1">
-                            <div class="comment-editor border-0" id="ecommerce-category-description"></div>
-                            <div class="comment-toolbar border-0">
-                                <div class="d-flex justify-content-end">
-                              <span class="ql-formats me-0">
-                                <button class="ql-bold"></button>
-                                <button class="ql-italic"></button>
-                                <button class="ql-underline"></button>
-                                <button class="ql-list" value="ordered"></button>
-                                <button class="ql-list" value="bullet"></button>
-                                <button class="ql-link"></button>
-                                <button class="ql-image"></button>
-                              </span>
-                                </div>
-                            </div>
-                        </div>
+                        <label class="form-label" for="ecommerce-category-product">Total Products</label>
+                        <input type="number"
+                               class="form-control"
+                               id="ecommerce-category-product"
+                               name="totalProducts"
+                               th:value="${data.totalProducts}"
+                               placeholder="Enter total products"
+                               aria-label="total products"/>
                     </div>
                     <!-- Status -->
-                    <div class="mb-4 ecommerce-select2-dropdown">
-                        <label class="form-label">Select category status</label>
-                        <select
-                                id="ecommerce-category-status"
-                                class="select2 form-select"
-                                data-placeholder="Select category status">
-                            <option value="">Select category status</option>
-                            <option value="Scheduled">Scheduled</option>
-                            <option value="Publish">Publish</option>
-                            <option value="Inactive">Inactive</option>
-                        </select>
-                    </div>
                     <!-- Submit and reset -->
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary me-sm-3 me-1 data-submit">Add</button>
